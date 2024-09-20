@@ -1,0 +1,69 @@
+/* stylelint-disable */
+// General
+@import '../assets/mixins/mixins.scss';
+@import '../assets/style/container.scss';
+@import '../assets/font/font.scss';
+
+// Components
+@import './Header/Header.scss';
+@import './ApiRender/ApiRender.scss';
+@import './Menu/Menu.scss';
+@import './Menu/MobileMenuAlert/MobileMenuAlert.scss';
+@import './NavigationGames/NavigationGames.scss';
+@import './Games/Games.scss';
+@import './Games/Grid/Grid.scss';
+@import './Games/GameCard/GameCard.scss';
+@import './Games/ProvidersList/ProvidersList.scss';
+@import './Games/ProvidersSlider/ProvidersSlider.scss';
+@import './JackpotInLobby/JackpotInLobby.scss';
+@import './Footer/Footer.scss';
+
+// Elements
+@import '../elements/SocialIcons/SocialIcons.scss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Gordita, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+
+  font-size: 14px;
+  background: var(--root--background);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    ::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgb(255 255 255 / 25%);
+      border-radius: 10px;
+      opacity: 0.3;
+    }
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:focus,
+:focus-visible {
+  outline: none;
+}
+
+.view {
+  background: var(--body--background);
+
+  @include flexbox($justifyContent: flex-start, $flow: column nowrap);
+  min-height: 100vh;
+}

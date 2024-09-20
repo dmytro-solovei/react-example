@@ -1,0 +1,150 @@
+.navigation-games {
+  @include pxToEm(padding, 20 0);
+  width: 100%;
+  background: #00000040;
+
+  .item {
+    @include pxToEm(padding, 9 0);
+    display: flex;
+    // max-width: 110px;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    &:hover {
+
+      .item__title {
+        color: #61a6e1;
+      }
+    }
+
+    &__icon {
+      @include pxToEm(margin-bottom, 8);
+      width: 36px;
+      height: 36px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+
+    &__title {
+      @include font(12, 11, 500, #fff);
+      text-transform: uppercase;
+      transition: color 0.4s ease;
+    }
+
+    &--active {
+
+      .item__title {
+        color: #61a6e1;
+      }
+    }
+  }
+
+  .swiper-block {
+    position: relative;
+    overflow: hidden;
+
+    @media (width <= 525px) and (orientation: portrait) {
+      padding: 0 10px;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 14px;
+        height: 18px;
+        margin: auto;
+        inset: 0 auto;
+        background: url('./assets/arrow__left.svg') no-repeat center center / cover;
+      }
+
+      &::before {
+        left: -2px;
+      }
+
+      &::after {
+        right: -2px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .search {
+    width: fill-available;
+    max-width: 400px;
+
+    @media (width <= 767px) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .btn {
+
+    &--navigation-games {
+      width: auto;
+
+      span {
+        @include font(14, 14, 500, inherit);
+      }
+
+      @media (width <= 767px) {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  }
+
+  &__swiper {
+    background: #0000004d;
+    border-radius: 35px;
+  }
+
+  &__container {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (width <= 3200px) {
+      max-width: 1120px;
+    }
+
+    @media (width <= 1920px) {
+      max-width: 900px;
+    }
+
+    @media (width <= 1440px) {
+      max-width: 680px;
+    }
+
+    @media (width <= 992px) {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__action {
+    @include pxToEm(margin-bottom, 20);
+    @include flexbox($alignItems: center, $justifyContent: space-between, $gap: 10px);
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (width <= 992px) and (orientation: portrait) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    @media (width <= 767px) {
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+
+  width: 100%;
+  height: auto;
+
+  transition: transform 200ms ease-out;
+
+  background: var(--header-background);
+
+  .enter {
+    transform: translateY(-100%);
+
+    &-done {
+      transform: translateY(0);
+    }
+  }
+
+  .btn {
+
+    @include pxToEm(padding, 12 35);
+    text-transform: capitalize;
+
+    &--registration {
+      @include pxToEm(margin-left, 20);
+    }
+
+    span {
+      @include font(14, 12, 400, inherit);
+    }
+  }
+
+  &__block {
+    @include pxToEm(padding, 15 0);
+
+    @include flexbox($justifyContent: space-between, $alignItems: center, $wrap: nowrap, $gap: 10px);
+    width: 100%;
+
+    &--menu,
+    &--nav {
+      width: 30%;
+    }
+
+    &--logo {
+      @include font(20, 20, 500, var(--header-logo-text-color));
+      width: auto;
+      cursor: pointer;
+
+      text-transform: uppercase;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+
+        &:active {
+          color: unset;
+        }
+      }
+
+      img {
+        display: block;
+
+        width: 100%;
+        max-width: 120px;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &--nav {
+      @include flexbox($justifyContent: flex-end, $alignItems: center, $wrap: nowrap);
+    }
+  }
+}

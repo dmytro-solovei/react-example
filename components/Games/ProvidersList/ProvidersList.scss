@@ -1,0 +1,117 @@
+.providers {
+  min-height: 50vh;
+
+  .providers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+
+    @media (width <= 1024px) {
+      margin-top: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      margin-bottom: 20px;
+    }
+
+    @media (width <= 992px) {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      margin-top: 0;
+    }
+
+    @media (width <= 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .item {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+      justify-content: stretch;
+      position: relative;
+
+      height: 160px;
+
+      min-height: 58px;
+      overflow: hidden;
+      transition: 0.4s ease all;
+      cursor: pointer;
+      box-shadow: var(--providers-list-item-shadow);
+      background-color: var(--providers-list-item-bg);
+      border-radius: 10px;
+
+      @media (width <= 992px) {
+      }
+
+      @media (width <= 768px) {
+        justify-content: flex-start;
+      }
+
+      &:hover {
+        background: var(--providers-list-item-bg-hover);
+
+        .item__name {
+          color: var(--providers-list-item-text-hover);
+        }
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+        &::before {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          margin: auto;
+          inset: 0;
+
+          background: var(--providers-list-item-bg--info);
+        }
+      }
+
+      &__name {
+        @include font(16, 13, 500, var(--providers-list-item-text));
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+
+        &--line {
+          justify-content: flex-start;
+        }
+      }
+
+      &__count {
+        @include font(14, 12, 500, var(--providers-list-item-text));
+        margin-top: 5px;
+      }
+
+      &__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 92px;
+        padding: 16px 0;
+        object-fit: cover;
+        object-position: center;
+        pointer-events: none;
+
+        img {
+          width: auto;
+          max-width: 90%;
+          height: 60px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}

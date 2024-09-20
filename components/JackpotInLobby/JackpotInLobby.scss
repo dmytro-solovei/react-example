@@ -1,0 +1,223 @@
+.loby-jackpots {
+
+  @include pxToEm(margin-top, 30);
+  @include pxToEm(margin-bottom, 30);
+  position: relative;
+
+  &_info {
+
+    @include flexbox($justifyContent: space-between, $alignItems: center, $flow: column nowrap);
+    @include pxToEm(min-height, 190);
+    @include pxToEm(padding, 30);
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+
+    box-shadow: 0 4px 49px 0 rgb(16 3 168 / 43%);
+    background-image: linear-gradient(171deg, rgb(23 10 201) 0%, rgb(12 1 85) 100%);
+
+    border-radius: 10px;
+    text-align: center;
+    background-size: cover;
+
+    @media (width <= 767px) and (orientation: portrait) {
+      align-items: flex-start;
+      min-height: auto;
+      text-align: left;
+    }
+
+    @media (width <= 767px) {
+      @include pxToEm(padding, 15 15 25);
+    }
+
+    .abstact-image {
+      z-index: -1;
+
+      .light {
+        z-index: 3;
+      }
+
+      .monets {
+        z-index: 2;
+      }
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        inset: 0;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+
+    .inline {
+      width: 100%;
+
+      .title {
+
+        @include font(28, 26, 700, transparent);
+        font-family: sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        background-clip: text;
+        text-shadow: 0 0 0 rgb(33 17 0 / 0.4%);
+        background-image: linear-gradient(180deg, #fffd41 0%, #ce6f00 100%);
+
+        @media (width <= 767px) and (orientation: portrait) {
+          text-align: left;
+          color: #fff;
+          letter-spacing: 4px;
+        }
+      }
+
+      .value {
+
+        @include pxToEm(margin-top, 2);
+        @include font(36, 18, 700);
+        text-shadow: 0 0 0 rgb(0 26 34 / 0.4%);
+        background-image: #fff;
+        background-clip: text;
+      }
+    }
+
+    .show {
+
+      @include font(16, 16, 500, #fff);
+      @include pxToEm(margin-top, 20);
+      cursor: pointer;
+      position: relative;
+      border-bottom: 2px dashed #fff;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 50%;
+        border: 8px solid transparent;
+        transform: translateX(-50%);
+        transition: 0.4s ease;
+        border-top-color: #fff;
+        opacity: 0;
+      }
+
+      &.active {
+        border-color: #99ebff;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &_list {
+    @include pxToEm(padding-top, 30);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+
+    @media (width <= 992px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @media (width <= 767px) and (orientation: portrait) {
+      @include pxToEm(padding-top, 15);
+      gap: 15px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .item {
+
+      @include flexbox($alignItems: center, $flow: row-reverse);
+      @include pxToEm(padding, 30 20);
+      position: relative;
+      width: 100%;
+      text-decoration: none;
+
+      background-color: transparent;
+      border-radius: 10px;
+
+      transition: background-color 0.6s ease 0.4s, color 0.6s ease 0.4s;
+
+      @media (width <= 767px) {
+        @include pxToEm(padding, 20 15);
+      }
+
+      .background {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        object-fit: cover;
+        border-radius: 8px;
+        pointer-events: none;
+      }
+
+      .image-block {
+        position: absolute;
+        z-index: 1;
+        right: -20px;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        pointer-events: none;
+
+        @media (width <= 767px) and (orientation: portrait) {
+          right: 5px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-position: right;
+          object-fit: contain;
+        }
+      }
+
+      .info {
+
+        @include flexbox($justifyContent: space-between, $alignItems: flex-start, $flow: column nowrap);
+        @include pxToEm(padding-right, 5);
+        z-index: 2;
+        width: 100%;
+
+        max-width: 75%;
+
+        margin-right: auto;
+
+        .value {
+          @include font(22, 20, 400, #cdcdcd);
+        }
+
+        .name {
+          @include font(28, 26, 700, #cdcdcd);
+        }
+
+        .name + .value {
+          @include pxToEm(margin-top, 40);
+
+          @media (width <= 767px) {
+            @include pxToEm(margin-top, 20);
+          }
+        }
+
+        span {
+          display: inline-flex;
+
+          letter-spacing: 0.03em;
+          text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+        }
+      }
+    }
+  }
+}

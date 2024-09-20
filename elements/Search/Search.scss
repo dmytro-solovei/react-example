@@ -1,0 +1,65 @@
+/* stylelint-disable-next-line */
+@import '../../assets/mixins/mixins';
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 0 1px #fff;
+  border-radius: 100px;
+  background: transparent;
+  overflow: hidden;
+
+  input {
+    width: 100%;
+    padding: 9px 25px 9px 35px;
+    position: relative;
+    // box-sizing: border-box;
+    margin: 0;
+    background: transparent;
+    border: none;
+    transition: padding 0.3s ease-in-out;
+  }
+
+  ::-webkit-input-placeholder,
+  input {
+    @include font(14, 14, 500, #fff);
+  }
+
+  .icon,
+  .clear {
+    position: absolute;
+    top: 0;
+    inset-block-start: auto;
+    object-position: center;
+    width: 18px;
+    height: 18px;
+  }
+
+  .icon {
+    left: 10px;
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+  }
+  .clear {
+    cursor: pointer;
+    right: 10px;
+    height: 100%;
+    padding: 4px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(200%);
+  }
+
+  &[data-open='true'] {
+    .icon {
+      transform: translateX(-200%);
+    }
+    .clear--active {
+      transform: translateX(0);
+    }
+    input {
+      padding-left: 10px;
+    }
+  }
+}

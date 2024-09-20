@@ -1,0 +1,11 @@
+.games {
+  @include pxToEm(margin, 30 0);
+  overflow: hidden;
+
+  .swiper {
+
+    &-slide {
+      height: initial;
+    }
+  }
+}

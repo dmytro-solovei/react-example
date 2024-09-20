@@ -1,0 +1,28 @@
+.grid {
+
+  &-heading {
+    @include flexbox($justifyContent: space-between, $alignItems: center, $gap: 10px);
+    margin-bottom: 20px;
+  }
+
+  .btn {
+
+    &--grid-back {
+
+      span {
+        @include font(14, 14, 700, inherit);
+        text-transform: capitalize;
+      }
+    }
+
+    &--show-more {
+      @include pxToEm(padding, 12);
+      cursor: pointer;
+      border-radius: 10px;
+
+      span {
+        @include font(14, 14, 700, inherit);
+      }
+    }
+  }
+}
